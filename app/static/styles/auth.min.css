@@ -1,0 +1,120 @@
+a {
+  text-decoration: none;
+}
+
+.form-wrapper-cover {
+  background-image: url("https://blog.rezoomo.com/wp-content/uploads/2019/06/wp3903759.jpg");
+  min-height: 600px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.form-wrapper-cover .inner-blur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.form-wrapper-cover .inner-blur .form-wrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .login-form-wrapper {
+  width: 400px;
+  height: auto;
+  display: inline-block;
+  padding: 30px 20px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper {
+  width: 700px;
+  height: auto;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 3px;
+  position: relative;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-left {
+  width: 60%;
+  float: left;
+  height: auto;
+  display: inline-block;
+  background-color: #fff;
+  padding: 30px 20px;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  float: right;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .login_with {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .fb {
+  background-color: #4267B2;
+  color: #fff;
+  border-color: #4267B2;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .fb:hover {
+  background-color: #4267B2;
+  color: #fff;
+  border-color: #4267B2;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .tw {
+  background-color: #00ACEE;
+  color: #fff;
+  border-color: #00ACEE;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .tw:hover {
+  background-color: #00ACEE;
+  color: #fff;
+  border-color: #00ACEE;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .go {
+  background-color: #db4a39;
+  color: #fff;
+  border-color: #db4a39;
+}
+.form-wrapper-cover .inner-blur .form-wrapper .register-form-wrapper .section-right .social-btns .go:hover {
+  background-color: #db4a39;
+  color: #fff;
+  border-color: #db4a39;
+}
+.form-wrapper-cover .inner-blur .caption-wrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.form-wrapper-cover .inner-blur .caption-wrapper p {
+  color: #fff;
+  font-size: 30px;
+  padding: 0 10%;
+}
+
+/*# sourceMappingURL=auth.min.css.map */

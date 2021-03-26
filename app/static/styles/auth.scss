@@ -1,0 +1,125 @@
+$dark_base: #1c1c1c;
+$base: #1c1c1c;
+$red: #F36969;
+
+a{
+  text-decoration: none;
+}
+
+.form-wrapper-cover{
+  background-image: url("https://blog.rezoomo.com/wp-content/uploads/2019/06/wp3903759.jpg");
+  min-height: 600px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .inner-blur{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    .form-wrapper{
+      width: 100%;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      .login-form-wrapper{
+        width: 400px;
+        height: auto;
+        display: inline-block;
+        padding: 30px 20px;
+        background-color: #fff;
+        border-radius: 3px;
+      }
+      .register-form-wrapper{
+        width: 700px;
+        height: auto;
+        display: inline-block;
+        background-color: #fff;
+        border-radius: 3px;
+        position: relative;
+        .section-left{
+          width: 60%;
+          float: left;
+          height: auto;
+          display: inline-block;
+          background-color: #fff;
+          padding: 30px 20px;
+        }
+        .section-right{
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 40%;
+          height: 100%;
+          float: right;
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          background-color: #222;
+          padding: 10px 20px;
+          box-sizing: border-box;
+          .social-btns{
+            .login_with{
+              display: block;
+              margin-bottom: 40px;
+              font-size: 28px;
+              color: #FFF;
+              text-align: center;
+            }
+            .fb{
+
+              background-color: #4267B2;
+              color: #fff;
+              border-color: #4267B2;
+              &:hover{
+                background-color: #4267B2;
+                color: #fff;
+                border-color: #4267B2;
+              }
+            }
+            .tw{
+              background-color: #00ACEE;
+              color: #fff;
+              border-color: #00ACEE;
+              &:hover{
+                background-color: #00ACEE;
+                color: #fff;
+                border-color: #00ACEE;
+              }
+            }
+            .go{
+              background-color: #db4a39;
+              color: #fff;
+              border-color: #db4a39;
+              &:hover{
+                background-color: #db4a39;
+                color: #fff;
+                border-color: #db4a39;
+              }
+            }
+          }
+        }
+      }
+    }
+    .caption-wrapper{
+      width: 100%;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p{
+        color: #fff;
+        font-size: 30px;
+        padding: 0 10%;
+      }
+    }
+  }
+}

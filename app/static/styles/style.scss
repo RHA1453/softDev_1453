@@ -1,0 +1,217 @@
+$dark_base: #1c1c1c;
+$base: #1c1c1c;
+$red: #F36969;
+
+.top-bar-wrapper{
+  border-bottom: #e8e8e8 1px solid;
+  .container{
+    @media only screen and (max-width: 991px) {
+      max-width: 100%;
+    }
+  }
+  .top-bar{
+    width: 100%;
+    margin: 0 auto;
+    padding: 13px 0;
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    .top-bar-left{
+      width: 50%;
+      text-align: left;
+      ul {
+        width: auto;
+        display: inline-block;
+        list-style: none;
+        float: left;
+        margin-bottom: 0;
+        padding-left: 0;
+        margin-left: 0;
+        li {
+          float: left;
+          font-size: 15px;
+          padding: 2px 8px;
+          border: 1px solid #dfdfdf;
+          margin-right: 5px;
+          a{
+            opacity: 0.7;
+            transition: 0.3s;
+            i{
+              font-size: 15px;
+              color: $base;
+            }
+            &:hover{
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .top-bar-right{
+      width: 50%;
+      text-align: right;
+      ul {
+        list-style: none;
+        width: auto;
+        display: inline-block;
+        float: right;
+        margin-bottom: 0;
+        li {
+          float: left;
+          font-size: 15px;
+          padding: 0 10px;
+          a{
+            opacity: 0.7;
+            transition: 0.3s;
+            i{
+              font-size: 18px;
+              color: $base;
+            }
+            &:hover{
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .logout-btn{
+        text-decoration: none;
+      }
+    }
+  }
+}
+.footer-section-wrapper {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  .footer-content-wrapper {
+    padding: 65px 0 20px 0;
+    .section-title-wrapper {
+      .section-title {
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 0 0 25px 0;
+      }
+
+      .title-bar {
+        height: 2px;
+        margin: 0 0 25px 0;
+        width: 55px;
+        background-color: $base;
+      }
+    }
+    .section-contents {
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 25px;
+        display: inline-block;
+      }
+      .description {
+        font-size: 15px;
+
+        p {
+          font-size: 15px;
+          margin: 0 0 25px 0;
+        }
+      }
+
+      .input-theme {
+        border-radius: 0;
+        margin-top: 20px;
+        border: none;
+      }
+
+      .button-wrapper {
+        width: 100%;
+        margin-top: 10px;
+
+        .button-theme {
+          float: left;
+          color: #fff;
+          font-size: 14px;
+          -webkit-border-radius: 30px;
+          -moz-border-radius: 30px;
+          -o-border-radius: 30px;
+          border-radius: 30px;
+          padding: 8px 15px;
+          display: inline-table;
+          background-color: $base;
+
+          &:after {
+            content: "\f105";
+            font-size: 16px;
+            font-family: FontAwesome;
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+
+      .contact-widget {
+        margin: 0 0 0 40px;
+        font-size: 14px;
+
+        .cw-address {
+          margin: 0 0 20px 0;
+          position: relative;
+          font-size: 14px;
+
+          &:before {
+            content: "\f041";
+            font-size: 25px;
+            left: -32px;
+            top: 16px;
+            font-family: FontAwesome;
+            line-height: 0;
+            position: absolute;
+            display: block;
+          }
+        }
+
+        .cw-phone {
+          margin: 0 0 20px 0;
+          position: relative;
+          font-size: 14px;
+
+          &:before {
+            content: "\f095";
+            font-size: 25px;
+            left: -36px;
+            font-family: FontAwesome;
+            line-height: 0;
+            position: absolute;
+            top: 16px;
+            display: block;
+          }
+        }
+
+        .cw-cell {
+          margin: 0 0 20px 0;
+          position: relative;
+          font-size: 14px;
+
+          &:before {
+            content: "\f0e0";
+            font-size: 25px;
+            left: -36px;
+            font-family: FontAwesome;
+            line-height: 0;
+            position: absolute;
+            top: 16px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .bottom-bar {
+    padding: 30px 0;
+    margin: 45px 0 0 0;
+    border-top: #3b3b3b 1px solid;
+
+    .cc {
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      margin: 0;
+      color: #fff;
+    }
+  }
+}
