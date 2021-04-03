@@ -198,4 +198,31 @@
   color: #fff;
 }
 
+.side-nav-bar {
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+}
+.side-nav-bar li {
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  cursor: pointer;
+  display: inline-block;
+}
+.side-nav-bar li a {
+  width: 100%;
+  padding: 7px 25px;
+  font-size: 17px;
+  text-decoration: none;
+  color: #222;
+  float: left;
+}
+.side-nav-bar li a._active {
+  border-bottom: 1px solid #00ACEE;
+}
+
+.books-list-wrapper p {
+  margin-bottom: 5px;
+}
+
 /*# sourceMappingURL=style.min.css.map */

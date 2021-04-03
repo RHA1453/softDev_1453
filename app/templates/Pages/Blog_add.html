@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/style.min.css') }}">
+    <title>1453-addPost</title>
+</head>
+<body>
+    {% include './global/header.html' %}
+    <div class="container mt-5 mb-5">
+        <h3 class="mb-5">Add Blog</h3>
+        <form onsubmit="addArticle(event)" id="addBookForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <label>Title</label>
+                        <input name="title" type="text" class="form-control" placeholder="title">
+                        <small class="form-text text-danger invalid-feedback"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <label>book Cover</label>
+                        <input id="book_cover" name="cover" type="file" class="form-control" placeholder="Select book file">
+                        <small class="form-text text-danger invalid-feedback"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <label>Contents</label>
+                        <textarea name="contents" cols="10" rows="8" class="form-control"></textarea>
+                        <small class="form-text text-danger invalid-feedback"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-dark">Add Blog</button>
+            </div>
+        </form>
+    </div>
+    {% include './global/footer.html' %}
+    <script>
+        function ErrorHandaler(errors) {
+            $.each(errors, function (i, v) {
+                $('[name=' + i + ']').closest('.form-group').find('.form-control').addClass('is-invalid');
+                $('[name=' + i + ']').closest('.form-group').find('.invalid-feedback').html(v);
+            });
+        }
+        function addArticle(event){
+            event.preventDefault();
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback').html('');
+
+            let form = {}
+            $("form#addBookForm .form-control").each(function(){
+                let key = $(this).attr('name');
+                let value = $(this).val();
+                if(key !== undefined){
+                    if(key === "cover"){
+                        if(value !== ""){
+                            form[key] = $('input#book_cover')[0].files[0] ;
+                        }
+                    }else{
+                        form[key] = value;
+                    }
+                }
+            });
+            let formData = new FormData();
+            formData.append("title", form.title);
+            formData.append("cover", form.cover);
+            formData.append("contents", form.contents);
+            let URL = 'http://127.0.0.1:5000/api/article/add'
+            $.ajax({
+                url: URL,
+                type: "post",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    if(response.status == 2000){
+                        window.location.href = '/article'
+                    }else{
+                        ErrorHandaler(response.errors)
+                    }
+                },
+            });
+        }
+    </script>
+</body>
+</html>

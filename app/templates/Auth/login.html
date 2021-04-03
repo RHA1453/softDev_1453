@@ -23,7 +23,7 @@
                                 <p>
                                     প্রত্যেক মুসলমান নর-নারীর জন্য জ্ঞান অর্জন করা ফরজ <br> <small>(হযরত মুহাম্মাদ সা.)</small>
                                 </p>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -33,12 +33,14 @@
                                 <h3 class="mb-3">Login</h3>
                                 <div class="form-group mb-3">
                                     <label>Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                                    <small class="form-text text-danger invalid-feedback"></small>
+                                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    <small class="form-text text-danger invalid-feedback"></small>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-outline-dark w-100">Login</button>
@@ -61,7 +63,15 @@
         </div>
     </div>
     <script>
+        function ErrorHandaler(errors) {
+            $.each(errors, function (i, v) {
+                $('[name=' + i + ']').closest('.form-group').find('.form-control').addClass('is-invalid');
+                $('[name=' + i + ']').closest('.form-group').find('.invalid-feedback').html(v);
+            });
+        }
         function login(event){
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback').html('');
             event.preventDefault();
             let email = $('#email').val();
             let password = $('#password').val();
@@ -76,6 +86,8 @@
                 success: function (response) {
                     if(response.status == 2000){
                         window.location.href = '/'
+                    }else{
+                        ErrorHandaler(response.errors)
                     }
                 },
             });

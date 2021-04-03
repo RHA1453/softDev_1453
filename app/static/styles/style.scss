@@ -215,3 +215,30 @@ $red: #F36969;
     }
   }
 }
+.side-nav-bar{
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  li{
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+    display: inline-block;
+    a{
+      width: 100%;
+      padding: 7px 25px;
+      font-size: 17px;
+      text-decoration: none;
+      color: #222;
+      float: left;
+      &._active{
+        border-bottom: 1px solid #00ACEE;
+      }
+    }
+  }
+}
+.books-list-wrapper{
+  p{
+    margin-bottom: 5px;
+  }
+}

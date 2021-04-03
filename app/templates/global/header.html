@@ -36,8 +36,8 @@
                         </li>
                     </ul>
                     {% else %}
-                        <span>{{session['__auth__']['name']}}</span> /
-                        <a onclick="logout(event)"  href="javascript:void(0)" class="logout-btn">logout</a>
+                    <span>{{session['__auth__']['name']}}</span> /
+                    <a onclick="logout(event)" href="javascript:void(0)" class="logout-btn">logout</a>
                     {% endif %}
                 </div>
             </div>
@@ -53,7 +53,9 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -61,11 +63,10 @@
                     <li class="nav-item">
                         <a class="nav-link {{ 'active' if request.path == '/' else '' }}" aria-current="page" href="/">Home</a>
                     </li>
-                    
                     <li class="nav-item">
-                        <a class="nav-link {{ 'active' if request.path == '/article' else '' }}" href="/article">Article</a>
+                        <a class="nav-link {{ 'active' if request.path == '/article' else '' }}"
+                           href="/article">Blogs</a>
                     </li>
-                    
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -89,4 +90,5 @@
             },
         });
     }
+
 </script>

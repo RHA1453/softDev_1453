@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles/style.min.css') }}">
+    <title>1453</title>
+</head>
+<body>
+{% include './global/header.html' %}
+<div class="container mt-2">
+    <div class="row mb-3">
+        {% if session['__auth__'] != null %}
+            <div class="col-md-12" style="text-align: right">
+                <a href="/article/add" class="btn btn-outline-dark" type="button">Add Blog</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="text-center mt-4">“সবচেয়ে বড় জ্ঞানের পরিচয় হল, তুমি কিছুই জানো না – এটা জানা” <small>–সক্রেটিস</small></h5>
+            <div class="books-list-wrapper mt-4">
+                <div class="row">
+                    {% if articles|length == 0 %}
+                    <h5 class="text-center mt-4">Article list is Empty</h5>
+                    {% endif %}
+                    {% for i in articles %}
+                    <div class="col-md-4 mb-5">
+                        <div class="each-book-wrapper">
+                            <div class="book-cover">
+                                <img style="width: 100%; height: 300px" src="{{ url_for('static', filename = 'uploads/'+i.cover) }}" alt="">
+                            </div>
+                            <div class="book-option">
+                                <p><strong>{{i.title}}</strong></p>
+
+                                {% if i.contents|length > 80 %}
+                                <p>{{i.contents[0:80]}}...</p>
+                                {% else %}
+                                <p>{{i.contents}}</p>
+                                {% endif %}
+
+                                <a href="/article/view/{{i.id}}" class="btn btn-outline-dark" type="button">Read</a>
+                                {% if session['__auth__'] != null %}
+                                <a href="/article/edit/{{i.id}}" class="btn btn-outline-dark" type="button">Edit</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include './global/footer.html' %}
+</body>
+</html>
